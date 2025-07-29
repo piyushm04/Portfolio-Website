@@ -1,0 +1,504 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<script src="https://cdn.tailwindcss.com"></script>
+<style>
+  @keyframes spin-slow {
+    0% { transform: rotate(0deg); }
+    100% { transform: rotate(360deg); }
+  }
+
+  @keyframes spin-slower {
+    0% { transform: rotate(0deg) translateX(25px) rotate(0deg); }
+    100% { transform: rotate(360deg) translateX(25px) rotate(-360deg); }
+  }
+
+  .animate-spin-slow {
+    animation: spin-slow 20s linear infinite;
+  }
+
+  .animate-spin-slower {
+    animation: spin-slower 4s linear infinite;
+  }
+</style>
+
+
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Full Stack Developer Portfolio</title>
+<script src="https://cdn.tailwindcss.com/3.4.16"></script>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet">
+<link href="https://cdnjs.cloudflare.com/ajax/libs/remixicon/4.6.0/remixicon.min.css" rel="stylesheet">
+<script>
+ 
+
+
+
+tailwind.config = {
+theme: {
+extend: {
+colors: {
+primary: '#00E0FF',
+secondary: '#6DDCFF'
+},
+borderRadius: {
+'none': '0px',
+'sm': '4px',
+DEFAULT: '8px',
+'md': '12px',
+'lg': '16px',
+'xl': '20px',
+'2xl': '24px',
+'3xl': '32px',
+'full': '9999px',
+'button': '8px'
+}
+}
+}
+}
+</script>
+<style>
+:where([class^="ri-"])::before {
+content: "\f3c2";
+}
+body {
+font-family: 'Inter', sans-serif;
+background: linear-gradient(135deg, #0a1628 0%, #1e3a8a 50%, #1e40af 100%);
+min-height: 100vh;
+}
+.glow-effect {
+box-shadow: 0 0 20px rgba(0, 224, 255, 0.3);
+}
+.glow-hover:hover {
+box-shadow: 0 0 30px rgba(0, 224, 255, 0.6);
+transform: translateY(-2px);
+transition: all 0.3s ease;
+}
+.floating-animation {
+animation: float 6s ease-in-out infinite;
+}
+.floating-animation:nth-child(2) {
+animation-delay: -2s;
+}
+.floating-animation:nth-child(3) {
+animation-delay: -4s;
+}
+@keyframes float {
+0%, 100% { transform: translateY(0px) rotate(0deg); }
+50% { transform: translateY(-20px) rotate(5deg); }
+}
+.neon-text {
+text-shadow: 0 0 10px rgba(0, 224, 255, 0.5);
+}
+.gradient-border {
+background: linear-gradient(45deg, #00E0FF, #6DDCFF);
+padding: 1px;
+border-radius: 12px;
+}
+.gradient-border-inner {
+background: rgba(15, 23, 42, 0.9);
+border-radius: 11px;
+height: 100%;
+}
+</style>
+</head>
+<body class="text-white">
+<div class="min-h-screen">
+<section class="relative overflow-hidden py-20 px-6">
+<div class="max-w-7xl mx-auto">
+<div class="flex items-center justify-between min-h-[80vh]">
+<div class="w-1/2 pr-12">
+<p class="text-primary font-bold mb-4 text-xl tracking-wide">Hello, I am</p>
+<h1 class="text-6xl font-black mb-4 neon-text leading-tight">
+PIYUSH MOLAWADE
+</h1>
+<div id="changing-role" class="text-2xl font-bold text-primary mb-4"></div>
+<script id="role-animation">
+document.addEventListener('DOMContentLoaded', function() {
+const roles = [
+"Full Stack Developer",
+"Python Developer",
+"Data Analyst",
+"DevOps Specialist"
+];
+let currentIndex = 0;
+let currentText = "";
+let letterIndex = 0;
+let isDeleting = false;
+let typingDelay = 100;
+let deletingDelay = 50;
+let newTextDelay = 2000;
+function type() {
+const role = roles[currentIndex];
+if (isDeleting) {
+currentText = role.substring(0, letterIndex - 1);
+letterIndex--;
+typingDelay = deletingDelay;
+} else {
+currentText = role.substring(0, letterIndex + 1);
+letterIndex++;
+typingDelay = 100;
+}
+document.getElementById('changing-role').textContent = currentText;
+if (!isDeleting && letterIndex === role.length) {
+typingDelay = newTextDelay;
+isDeleting = true;
+} else if (isDeleting && letterIndex === 0) {
+isDeleting = false;
+currentIndex = (currentIndex + 1) % roles.length;
+typingDelay = 500;
+}
+setTimeout(type, typingDelay);
+}
+type();
+});
+</script>
+<div class="flex items-center gap-3 mb-8">
+<div class="h-[2px] w-12 bg-primary"></div>
+<p class="text-2xl font-bold text-gray-200"></p>
+</div>
+<p class="text-xl mb-8 text-gray-300 leading-relaxed">“A full-stack web developer and data analyst passionate about building tools that make life easier. I specialize in Python, modern JS frameworks, and data visualization.”</p>
+<div class="flex gap-6 mb-12">
+<div class="gradient-border glow-hover">
+<div class="gradient-border-inner px-8 py-4">
+<div class="text-3xl font-bold text-primary mb-1">Student</div>
+<div class="text-sm text-gray-400">Nxtwave</div>
+</div>
+</div>
+<div class="gradient-border glow-hover">
+<div class="gradient-border-inner px-8 py-4">
+<div class="text-3xl font-bold text-secondary mb-1">20+</div>
+<div class="text-sm text-gray-400">Projects completed</div>
+</div>
+</div>
+<div class="gradient-border glow-hover">
+<div class="gradient-border-inner px-8 py-4">
+<div class="text-3xl font-bold text-primary mb-1">4.9</div>
+<div class="text-sm text-gray-400">Average Rating</div>
+</div>
+</div>
+</div>
+<div class="flex gap-4">
+<button class="bg-primary/20 border border-primary/50 text-primary font-bold px-8 py-4 !rounded-button glow-hover whitespace-nowrap flex items-center gap-2">
+<i class="ri-download-line"></i>
+VIEW PORTFOLIO
+</button>
+</div>
+</div>
+<div class="w-1/2 relative">
+<div class="relative z-10">
+<img
+src="https://res.cloudinary.com/dumbz8pqh/image/upload/v1753786298/ChatGPT_Image_Jul_29_2025_01_41_50_PM_k3kkpg.png"
+alt="Developer"
+class="w-80 h-96 object-cover rounded-2xl mx-auto glow-effect"
+>
+</div>
+<div class="absolute top-10 right-10 floating-animation">
+<div class="gradient-border w-20 h-20">
+<div class="gradient-border-inner flex items-center justify-center">
+<div class="w-8 h-8 flex items-center justify-center text-primary">
+<i class="ri-reactjs-line ri-2x"></i>
+</div>
+</div>
+</div>
+</div>
+<div class="absolute top-40 left-10 floating-animation">
+<div class="gradient-border w-20 h-20">
+<div class="gradient-border-inner flex items-center justify-center">
+<div class="w-8 h-8 flex items-center justify-center text-secondary">
+<i class="ri-nodejs-line ri-2x"></i>
+</div>
+</div>
+</div>
+</div>
+<div class="absolute bottom-20 right-20 floating-animation">
+<div class="gradient-border w-20 h-20">
+<div class="gradient-border-inner flex items-center justify-center">
+<div class="w-8 h-8 flex items-center justify-center text-primary">
+<i class="ri-database-2-line ri-2x"></i>
+</div>
+</div>
+</div>
+</div>
+<div class="absolute bottom-10 left-20 floating-animation">
+<div class="gradient-border w-20 h-20">
+<div class="gradient-border-inner flex items-center justify-center">
+<div class="w-8 h-8 flex items-center justify-center text-secondary">
+<i class="ri-docker-line ri-2x"></i>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+</section>
+<section class="py-20 px-6">
+<div class="max-w-7xl mx-auto text-center">
+<h2 class="text-4xl font-bold mb-16 neon-text">MY PROJECTS</h2>
+<div class="grid grid-cols-2 gap-8 mb-16">
+<div class="gradient-border glow-hover">
+<a href="https://youtubeindia.ccbp.tech/" target="_blank" class="block no-underline text-inherit">
+<div class="gradient-border-inner p-8">
+<img src="https://imgs.search.brave.com/LooVojbdEghUksGktoxVvrYELjQ-XpLCN1LMoa2GeA0/rs:fit:860:0:0:0/g:ce/aHR0cHM6Ly9jZG4u/cGl4YWJheS5jb20v/cGhvdG8vMjAyMC8x/MS8yMi8wNC8xMC95/b3V0dWJlLTU3NjU2/MDhfNjQwLnBuZw" alt="E-commerce Dashboard" class="w-full h-48 object-cover rounded-lg mb-6">
+<h3 class="text-xl font-bold mb-3 text-primary">Youtube Clone App</h3>
+<p class="text-gray-300 mb-4 leading-relaxed">The project focuses on mastering DOM manipulation, CSS animations, event handling, and responsive design using vanilla technologies. It serves as a demonstration of front-end development skills and attention to user experience.</p>
+<div class="flex flex-wrap gap-2">
+<span class="px-3 py-1 bg-primary/20 text-primary text-sm rounded-full">HTML</span>
+<span class="px-3 py-1 bg-primary/20 text-primary text-sm rounded-full">JAVASCRIPT</span>
+<span class="px-3 py-1 bg-primary/20 text-primary text-sm rounded-full">CSS</span>
+</div>
+</div>
+</a>
+</div>
+<div class="gradient-border glow-hover">
+<a href="https://dreamit.streamlit.app/" target="_blank" class="block no-underline text-inherit">
+<div class="gradient-border-inner p-8">
+<img src="https://imgs.search.brave.com/XyhBgeHTSEqz0N6XbWNFEK52UmWRUtUa-ln8hGJp_4g/rs:fit:860:0:0:0/g:ce/aHR0cHM6Ly93d3cu/ZWZyb250bGVhcm5p/bmcuY29tL2Jsb2cv/d3AtY29udGVudC91/cGxvYWRzLzIwMTcv/MTAvU2tpbGwtZ2Fw/cy1pbi10aGUtd29y/a3BsYWNlLnBuZw" alt="Social Platform" class="w-full h-48 object-cover rounded-lg mb-6">
+<h3 class="text-xl font-bold mb-3 text-primary">Dreamit- Resume Skill Gap Analyzer</h3>
+<p class="text-gray-300 mb-4 leading-relaxed">Analyzes your resume and states missing skills from resume using job description also by entering your dream company gives most frequently asked questions by that company </p>
+<div class="flex flex-wrap gap-2">
+<span class="px-3 py-1 bg-primary/20 text-primary text-sm rounded-full">Python</span>
+<span class="px-3 py-1 bg-primary/20 text-primary text-sm rounded-full">Machine Learning</span>
+<span class="px-3 py-1 bg-primary/20 text-primary text-sm rounded-full">Streamlit</span>
+</div>
+</div>
+</a>
+</div>
+<div class="gradient-border glow-hover">
+<div class="gradient-border-inner p-8">
+<img src="https://readdy.ai/api/search-image?query=AI%20powered%20task%20management%20application%20interface%20with%20dark%20theme%2C%20project%20tracking%20features%2C%20automated%20workflows%2C%20modern%20minimal%20design&width=500&height=300&seq=proj003&orientation=landscape" alt="AI Task Manager" class="w-full h-48 object-cover rounded-lg mb-6">
+<h3 class="text-xl font-bold mb-3 text-primary">AI-Powered Task Manager</h3>
+<p class="text-gray-300 mb-4 leading-relaxed">Smart task management system with AI-driven prioritization, automated scheduling, and team collaboration features.</p>
+<div class="flex flex-wrap gap-2">
+<span class="px-3 py-1 bg-primary/20 text-primary text-sm rounded-full">Python</span>
+<span class="px-3 py-1 bg-primary/20 text-primary text-sm rounded-full">Ml</span>
+<span class="px-3 py-1 bg-primary/20 text-primary text-sm rounded-full">Streamlit</span>
+</div>
+</div>
+</div>
+<div class="gradient-border glow-hover">
+<div class="gradient-border-inner p-8">
+<img src="https://readdy.ai/api/search-image?query=cryptocurrency%20trading%20platform%20interface%20with%20dark%20theme%2C%20real-time%20price%20charts%2C%20trading%20indicators%2C%20professional%20fintech%20design&width=500&height=300&seq=proj004&orientation=landscape" alt="Crypto Platform" class="w-full h-48 object-cover rounded-lg mb-6">
+<h3 class="text-xl font-bold mb-3 text-primary">Crypto Trading Platform</h3>
+<p class="text-gray-300 mb-4 leading-relaxed">Cryptocurrency trading platform with real-time price tracking, automated trading strategies, and portfolio management tools.</p>
+<div class="flex flex-wrap gap-2">
+<span class="px-3 py-1 bg-primary/20 text-primary text-sm rounded-full">Vue.js</span>
+<span class="px-3 py-1 bg-primary/20 text-primary text-sm rounded-full">GraphQL</span>
+<span class="px-3 py-1 bg-primary/20 text-primary text-sm rounded-full">AWS</span>
+</div>
+</div>
+</div>
+</div>
+<h2 class="text-4xl font-bold mb-16 neon-text">WHAT YOU'LL SEE</h2>
+<div class="grid grid-cols-3 gap-8 mb-12">
+<div class="gradient-border glow-hover">
+<div class="gradient-border-inner p-8 text-center">
+<div class="w-16 h-16 flex items-center justify-center mx-auto mb-6 text-primary">
+<i class="ri-code-s-slash-line ri-3x"></i>
+</div>
+<h3 class="text-xl font-bold mb-4 text-primary">My Development Stack</h3>
+<p class="text-gray-300 leading-relaxed">
+Modern frameworks and tools including React, Node.js, MongoDB, PostgreSQL, AWS, and Docker for building robust applications.
+</p>
+</div>
+</div>
+<div class="gradient-border glow-hover">
+<div class="gradient-border-inner p-8 text-center">
+<div class="w-16 h-16 flex items-center justify-center mx-auto mb-6 text-secondary">
+<i class="ri-git-branch-line ri-3x"></i>
+</div>
+<h3 class="text-xl font-bold mb-4 text-secondary">My Process</h3>
+<p class="text-gray-300 leading-relaxed">
+Agile development with CI/CD pipelines, automated testing, and responsive design principles for fast, reliable deployments.
+</p>
+</div>
+</div>
+<div class="gradient-border glow-hover">
+<div class="gradient-border-inner p-8 text-center">
+<div class="w-16 h-16 flex items-center justify-center mx-auto mb-6 text-primary">
+<i class="ri-lightbulb-line ri-3x"></i>
+</div>
+<h3 class="text-xl font-bold mb-4 text-primary">My Strengths</h3>
+<p class="text-gray-300 leading-relaxed">
+Expert debugging, clean code architecture, UI/UX balance, and scalable backend solutions with performance optimization.
+</p>
+</div>
+</div>
+</div>
+<div class="flex justify-center gap-6">
+<button class="bg-primary text-black font-bold px-8 py-4 !rounded-button glow-effect glow-hover whitespace-nowrap">
+DOWNLOAD RESUME
+</button>
+<button class="border border-primary text-primary font-bold px-8 py-4 !rounded-button glow-hover whitespace-nowrap">
+VIEW PROJECTS
+</button>
+</div>
+</div>
+</section>
+<section class="py-20 px-6">
+<div class="max-w-7xl mx-auto text-center">
+<h2 class="text-4xl font-bold mb-16 neon-text">WHO THIS PORTFOLIO IS FOR</h2>
+<div class="grid grid-cols-3 gap-8">
+<div class="gradient-border glow-hover">
+<div class="gradient-border-inner p-8">
+<div class="text-6xl font-black text-primary mb-6">01</div>
+<h3 class="text-xl font-bold mb-4">Startups & Founders</h3>
+<p class="text-gray-300 leading-relaxed">
+Who need MVPs or scalable web applications built with modern tech stack and best practices.
+</p>
+</div>
+</div>
+<div class="gradient-border glow-hover">
+<div class="gradient-border-inner p-8">
+<div class="text-6xl font-black text-secondary mb-6">02</div>
+<h3 class="text-xl font-bold mb-4">Agencies</h3>
+<p class="text-gray-300 leading-relaxed">
+Looking to collaborate with an experienced full stack developer for client projects and partnerships.
+</p>
+</div>
+</div>
+<div class="gradient-border glow-hover">
+<div class="gradient-border-inner p-8">
+<div class="text-6xl font-black text-primary mb-6">03</div>
+<h3 class="text-xl font-bold mb-4">Companies</h3>
+<p class="text-gray-300 leading-relaxed">
+Needing clean APIs, full system integration, or custom dashboards with enterprise-level solutions.
+</p>
+</div>
+</div>
+</div>
+</div>
+</section>
+<section class="py-20 px-6">
+<div class="max-w-7xl mx-auto">
+<h2 class="text-4xl font-bold text-center mb-16 neon-text">ABOUT ME</h2>
+<div class="flex items-center gap-16">
+<div class="w-1/2">
+<img
+src="https://readdy.ai/api/search-image?query=Professional%20software%20developer%20workspace%20setup%2C%20modern%20developer%20at%20desk%20with%20multiple%20monitors%20showing%20code%2C%20clean%20modern%20office%20environment%2C%20tech%20startup%20atmosphere%2C%20natural%20lighting%2C%20high%20quality%20photography&width=600&height=400&seq=dev002&orientation=landscape"
+alt="Developer workspace"
+class="w-full h-80 object-cover rounded-2xl glow-effect"
+>
+</div>
+<div class="w-1/2">
+<p class="text-xl leading-relaxed text-gray-200 mb-8">
+Hi, I'm <span class="text-primary font-bold">Piyush S. Molawade</span>. I craft web solutions using MERN stack, Python, PostgreSQL, and cloud platforms like AWS & Firebase. I love turning ideas into code and solving real-world problems.
+</p>
+<p class="text-lg leading-relaxed text-gray-300 mb-8">
+ building scalable applications that serve thousands of users. My expertise spans from frontend React applications to backend microservices and DevOps automation.
+</p>
+<div class="flex gap-4">
+<div class="w-12 h-12 flex items-center justify-center bg-primary/20 rounded-lg text-primary">
+<i class="ri-github-line ri-xl"></i>
+</div>
+<div class="w-12 h-12 flex items-center justify-center bg-primary/20 rounded-lg text-primary">
+<i class="ri-linkedin-line ri-xl"></i>
+</div>
+<div class="w-12 h-12 flex items-center justify-center bg-primary/20 rounded-lg text-primary">
+<i class="ri-twitter-line ri-xl"></i>
+</div>
+</div>
+</div>
+</div>
+</div>
+</section>
+<section class="py-20 px-6">
+<div class="max-w-4xl mx-auto text-center">
+  <h2 class="text-4xl font-bold mb-8 neon-text">Connect With Me On </h2>
+  
+
+
+<!-- 🌌 Lottie with Animated Gradient Background -->
+<div class="relative flex justify-center items-center h-[400px] w-full overflow-hidden mb-12 rounded-xl shadow-lg animated-gradient-bg">
+
+  <div class="h-full w-full flex justify-center items-center">
+    <lottie-player
+      src="https://assets10.lottiefiles.com/packages/lf20_jtbfg2nb.json"
+      background="transparent"
+      speed="1"
+      style="width: 300px; height: 300px;"
+      loop
+      autoplay>
+    </lottie-player>
+  </div>
+</div>
+
+<!-- Lottie Player Script -->
+<script src="https://unpkg.com/@lottiefiles/lottie-player@latest/dist/lottie-player.js"></script>
+
+<!-- 🔮 Animated Gradient Style -->
+<style>
+  @keyframes gradientShift {
+    0% { background-position: 0% 50%; }
+    50% { background-position: 100% 50%; }
+    100% { background-position: 0% 50%; }
+  }
+
+  .animated-gradient-bg {
+    background: linear-gradient(-45deg, #1e3a8a, #9333ea, #14b8a6, #f59e0b);
+    background-size: 300% 300%;
+    animation: gradientShift 10s ease infinite;
+  }
+</style>
+
+
+  <div class="flex justify-center gap-6 mt-8 text-3xl">
+    <a href="https://www.instagram.com/yourprofile" target="_blank" class="text-pink-500 hover:scale-110 transition-transform duration-300">
+      <i class="ri-instagram-line"></i>
+    </a>
+    <a href="https://www.linkedin.com/in/yourprofile" target="_blank" class="text-blue-500 hover:scale-110 transition-transform duration-300">
+      <i class="ri-linkedin-box-line"></i>
+    </a>
+    <a href="mailto:yourname@gmail.com" class="text-red-500 hover:scale-110 transition-transform duration-300">
+      <i class="ri-mail-line"></i>
+    </a>
+    <a href="https://github.com/yourusername" target="_blank" class="text-white hover:scale-110 transition-transform duration-300">
+      <i class="ri-github-line"></i>
+    </a>
+  </div>
+</div>
+
+</section>
+</div>
+<script id="countdown-timer">
+document.addEventListener('DOMContentLoaded', function() {
+function updateCountdown() {
+const targetDate = new Date();
+targetDate.setDate(targetDate.getDate() + 15);
+targetDate.setHours(8, 42, 30, 0);
+const now = new Date();
+const difference = targetDate - now;
+if (difference > 0) {
+const days = Math.floor(difference / (1000 * 60 * 60 * 24));
+const hours = Math.floor((difference % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+const minutes = Math.floor((difference % (1000 * 60 * 60)) / (1000 * 60));
+const seconds = Math.floor((difference % (1000 * 60)) / 1000);
+document.getElementById('days').textContent = days.toString().padStart(2, '0');
+document.getElementById('hours').textContent = hours.toString().padStart(2, '0');
+document.getElementById('minutes').textContent = minutes.toString().padStart(2, '0');
+document.getElementById('seconds').textContent = seconds.toString().padStart(2, '0');
+}
+}
+updateCountdown();
+setInterval(updateCountdown, 1000);
+});
+</script>
+<script id="form-interactions">
+document.addEventListener('DOMContentLoaded', function() {
+const inputs = document.querySelectorAll('input');
+inputs.forEach(input => {
+input.addEventListener('focus', function() {
+this.style.boxShadow = '0 0 20px rgba(0, 224, 255, 0.3)';
+});
+input.addEventListener('blur', function() {
+this.style.boxShadow = 'none';
+});
+});
+});
+
+</script>
+</body>
+</html>
